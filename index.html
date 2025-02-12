@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Webpage</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <div id="card-container"></div>
 
+<body>
+    <div id="card-container">
+    </div>
+    <button class="input-button">Add a Book</button>
+    <dialog id="myDialog">
+        <form id="book-form">
+            <label for="title">Enter Book Title:</label>
+            <input type="text" id="title" name="title">
+            <label for="author">Enter Book Author:</label>
+            <input type="text" id="author" name="author">
+
+            <button type="submit">Submit</button>
+            <button type="button" id="cancel">Cancel</button>
+        </form>
+    </dialog>
     <script src="script.js"></script>
 </body>
+
 </html>
