@@ -4,6 +4,7 @@ function Book(title, author) {
   // the constructor...
   this.title = title;
   this.author = author;
+  this.isRead = false;
 }
 
 function addBookToLibrary(title, author) {
@@ -14,6 +15,10 @@ function addBookToLibrary(title, author) {
   const book = new Book(title, author);
 
   myLibrary.push(book);
+}
+
+Book.prototype.setReadStatus = function() {
+  this.isRead = !this.isRead;
 }
 
 function removeBook(index) {
@@ -42,10 +47,22 @@ function displayBook() {
     removeButton.textContent = "Remove";
     removeButton.classList.add("remove-button");
 
+    const readButton = document.createElement("button");
+    readButton.classList.add("read-button");
+    readButton.textContent = book.isRead ? "Mark as Unread" : "Mark as Read";
+    readButton.style.backgroundColor = book.isRead ? "green" : "grey";
+
     removeButton.addEventListener("click", () => {
       removeBook(index);
     })
+
+    readButton.addEventListener("click", () => {
+      book.setReadStatus();
+      readButton.textContent = book.isRead ? "Mark as Unread" : "Mark as Read";
+      readButton.style.backgroundColor = book.isRead ? "green" : "grey";
+    })
     card.appendChild(removeButton);
+    card.appendChild(readButton);
 
     
 
